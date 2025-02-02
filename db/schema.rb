@@ -10,9 +10,26 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema[8.0].define(version: 2025_02_02_195159) do
+ActiveRecord::Schema[8.0].define(version: 2025_02_02_205511) do
   # These are extensions that must be enabled in order to support this database
   enable_extension "pg_catalog.plpgsql"
+
+  create_table "air_quality_metrics", force: :cascade do |t|
+    t.bigint "location_id", null: false
+    t.decimal "co", precision: 17, scale: 14
+    t.decimal "no", precision: 17, scale: 14
+    t.decimal "no2", precision: 17, scale: 14
+    t.decimal "o3", precision: 17, scale: 14
+    t.decimal "so2", precision: 17, scale: 14
+    t.decimal "pm2_5", precision: 17, scale: 14
+    t.decimal "pm10", precision: 17, scale: 14
+    t.decimal "nh3", precision: 17, scale: 14
+    t.datetime "recorded_at", precision: nil, null: false
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["location_id"], name: "index_air_quality_metrics_on_location_id"
+    t.index ["recorded_at"], name: "index_air_quality_metrics_on_recorded_at"
+  end
 
   create_table "locations", force: :cascade do |t|
     t.string "name", null: false
@@ -32,5 +49,6 @@ ActiveRecord::Schema[8.0].define(version: 2025_02_02_195159) do
     t.index ["name"], name: "index_states_on_name"
   end
 
+  add_foreign_key "air_quality_metrics", "locations"
   add_foreign_key "locations", "states"
 end

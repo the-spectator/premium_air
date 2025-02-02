@@ -28,6 +28,13 @@ gem "solid_cache"
 gem "solid_queue"
 gem "solid_cable"
 
+# http client
+gem "faraday", "~> 2.12"
+gem "faraday-retry"
+
+# Async
+gem "async", "~> 2.21"
+
 # Reduces boot times through caching; required in config/boot.rb
 gem "bootsnap", require: false
 

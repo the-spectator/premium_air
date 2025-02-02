@@ -9,7 +9,7 @@ module OpenWeather
         @json = response.body
       end
 
-      def coordinates
+      def coordinate
         @coordinates ||= Resource::Coordinate.new(json["coord"])
       end
 

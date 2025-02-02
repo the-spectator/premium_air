@@ -1,8 +1,13 @@
 # frozen_string_literal: true
 
 require "open_weather/client"
+
 require "open_weather/api/base_api"
 require "open_weather/api/air_pollution"
+
+require "open_weather/resource/metric"
+require "open_weather/resource/coordinate"
+require "open_weather/resource/metric_collection"
 
 module OpenWeather
   class BaseError < StandardError

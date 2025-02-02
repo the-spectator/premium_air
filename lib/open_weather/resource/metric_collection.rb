@@ -10,7 +10,7 @@ module OpenWeather
       end
 
       def coordinate
-        @coordinates ||= Resource::Coordinate.new(json["coord"])
+        @coordinate ||= Resource::Coordinate.new(json["coord"])
       end
 
       def metrics
@@ -19,7 +19,7 @@ module OpenWeather
 
       # NOTE: had to override inspect because of too verbose output
       def inspect
-        "#<#{self.class.name}:#{object_id} coord=#{coordinates.inspect} metrics=#{metrics.inspect}>"
+        "#<#{self.class.name}:#{object_id} coord=#{coordinate.inspect} metrics=#{metrics.inspect}>"
       end
     end
   end

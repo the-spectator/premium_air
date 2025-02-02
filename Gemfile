@@ -51,8 +51,15 @@ group :development, :test do
   gem "rubocop-rails-omakase", require: false
 end
 
+group :test do
+  gem "rspec-rails"
+  gem "vcr"
+  gem "factory_bot_rails"
+  gem "webmock"
+  # TODO integrate simple cov
+end
+
 group :development do
   # Use console on exceptions pages [https://github.com/rails/web-console]
   gem "web-console"
 end
-

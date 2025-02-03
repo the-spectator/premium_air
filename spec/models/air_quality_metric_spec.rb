@@ -21,6 +21,8 @@ RSpec.describe AirQualityMetric, type: :model do
     context "with valid attributes" do
       subject { build(:air_quality_metric, location: create(:location)) }
 
+      it { is_expected.to validate_uniqueness_of(:recorded_at).scoped_to(:location_id) }
+
       it 'is valid with valid attributes' do
         expect(subject).to be_valid
       end

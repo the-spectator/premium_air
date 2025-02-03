@@ -65,7 +65,7 @@ group :test do
   gem "factory_bot_rails", "~> 6.4"
   gem "webmock", "~> 3.0"
   gem "shoulda-matchers", "~> 6.0"
-  # TODO integrate simple cov
+  gem "simplecov", require: false
 end
 
 group :development do

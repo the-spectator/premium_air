@@ -61,6 +61,7 @@ end
 group :test do
   gem "rspec-rails", "~> 7.1"
   gem "vcr", "~> 6.3"
+  gem "faker", "~> 3.5"
   gem "factory_bot_rails", "~> 6.4"
   gem "webmock", "~> 3.0"
   gem "shoulda-matchers", "~> 6.0"

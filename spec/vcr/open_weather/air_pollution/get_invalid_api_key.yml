@@ -1,0 +1,44 @@
+---
+http_interactions:
+- request:
+    method: get
+    uri: http://api.openweathermap.org/data/2.5/air_pollution?appid=invalid_api_key&lat=17.902781&lon=74.081413
+    body:
+      encoding: US-ASCII
+      string: ''
+    headers:
+      User-Agent:
+      - Faraday v2.12.2
+      Accept-Encoding:
+      - gzip;q=1.0,deflate;q=0.6,identity;q=0.3
+      Accept:
+      - "*/*"
+  response:
+    status:
+      code: 401
+      message: Unauthorized
+    headers:
+      Server:
+      - openresty
+      Date:
+      - Sun, 02 Feb 2025 19:39:50 GMT
+      Content-Type:
+      - application/json; charset=utf-8
+      Content-Length:
+      - '108'
+      Connection:
+      - keep-alive
+      X-Cache-Key:
+      - "/data/2.5/air_pollution?lat=17.9&lon=74.08"
+      Access-Control-Allow-Origin:
+      - "*"
+      Access-Control-Allow-Credentials:
+      - 'true'
+      Access-Control-Allow-Methods:
+      - GET, POST
+    body:
+      encoding: UTF-8
+      string: '{"cod":401, "message": "Invalid API key. Please see https://openweathermap.org/faq#error401
+        for more info."}'
+  recorded_at: Sun, 02 Feb 2025 19:39:50 GMT
+recorded_with: VCR 6.3.1

@@ -13,7 +13,7 @@ module OpenWeather
 
       POLLUTANTS.each do |pollutant|
         define_method(pollutant) do
-          json.dig("components", pollutant)
+          json.dig("components", pollutant)&.round(6)
         end
       end
 

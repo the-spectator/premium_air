@@ -2,6 +2,8 @@
 
 An AQI monitor based on Open Weather API.
 
+<img width="1511" alt="image" src="https://github.com/user-attachments/assets/5b0187c5-8b9a-4cd7-8247-e0391087e226" />
+
 ## Table of Contents
 
 - [Methodology Used](#methodology)

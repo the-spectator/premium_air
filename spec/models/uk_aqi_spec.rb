@@ -70,7 +70,7 @@ RSpec.describe UkAqi, type: :model do
           result = subject
           expect(result[:aqi]).to eq(3)
           expect(result[:band]).to eq("Low")
-          expect(result[:pollutant]).to eq(:pm2_5)
+          expect(result[:max_pollutant]).to eq(:pm2_5)
         end
       end
 
@@ -83,7 +83,7 @@ RSpec.describe UkAqi, type: :model do
           result = subject
           expect(result[:aqi]).to eq(6)
           expect(result[:band]).to eq("Moderate")
-          expect(result[:pollutant]).to eq(:pm2_5) # Highest AQI pollutant
+          expect(result[:max_pollutant]).to eq(:pm2_5) # Highest AQI pollutant
         end
       end
 
@@ -96,7 +96,7 @@ RSpec.describe UkAqi, type: :model do
           result = subject
           expect(result[:aqi]).to eq(8)
           expect(result[:band]).to eq("High")
-          expect(result[:pollutant]).to eq(:pm2_5)
+          expect(result[:max_pollutant]).to eq(:pm2_5)
         end
       end
 
@@ -109,7 +109,7 @@ RSpec.describe UkAqi, type: :model do
           result = subject
           expect(result[:aqi]).to eq(10)
           expect(result[:band]).to eq("Very High")
-          expect(result[:pollutant]).to eq(:pm2_5)
+          expect(result[:max_pollutant]).to eq(:pm2_5)
         end
       end
 
@@ -122,7 +122,7 @@ RSpec.describe UkAqi, type: :model do
           result = subject
           expect(result[:aqi]).to eq(1)
           expect(result[:band]).to eq("Low")
-          expect(result[:pollutant]).to eq(:pm2_5)
+          expect(result[:max_pollutant]).to eq(:pm2_5)
         end
       end
 
@@ -135,7 +135,7 @@ RSpec.describe UkAqi, type: :model do
           result = subject
           expect(result[:aqi]).to eq(6)
           expect(result[:band]).to eq("Moderate")
-          expect(result[:pollutant]).to eq(:pm2_5)
+          expect(result[:max_pollutant]).to eq(:pm2_5)
         end
       end
     end

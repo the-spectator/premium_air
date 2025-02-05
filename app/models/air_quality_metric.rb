@@ -10,6 +10,11 @@ class AirQualityMetric < ApplicationRecord
 
   validate :recorded_at_cannot_be_in_the_future
 
+
+  def uk_standard_pollutants
+    self.attributes.slice(*UkAqi::CONSIDERED_POLLUTANTS.map(&:to_s))
+  end
+
   private
 
   def recorded_at_cannot_be_in_the_future

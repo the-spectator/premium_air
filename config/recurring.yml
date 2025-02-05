@@ -1,3 +1,15 @@
+schedule: &schedule
+  air_quality_importer:
+    class: AirQualityImportCronJob
+    queue: importer
+    schedule: every 5 minutes
+
+production:
+  <<: *schedule
+
+development:
+  <<: *schedule
+
 # production:
 #   periodic_cleanup:
 #     class: CleanSoftDeletedRecordsJob

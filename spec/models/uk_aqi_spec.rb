@@ -125,6 +125,19 @@ RSpec.describe UkAqi, type: :model do
           expect(result[:pollutant]).to eq(:pm2_5)
         end
       end
+
+      context "for boundary values between ranges" do
+        let(:pollutants) do
+          { pm2_5: 53.64, pm10: 59.43, o3: 141.62, no2: 2.12, so2: 4.23 }
+        end
+
+        it "handles lower boundary values correctly" do
+          result = subject
+          expect(result[:aqi]).to eq(6)
+          expect(result[:band]).to eq("Moderate")
+          expect(result[:pollutant]).to eq(:pm2_5)
+        end
+      end
     end
   end
 end

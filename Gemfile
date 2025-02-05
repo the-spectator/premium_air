@@ -28,6 +28,9 @@ gem "solid_cache"
 gem "solid_queue"
 gem "solid_cable"
 
+# monitor solid queue
+gem "mission_control-jobs", "~> 1.0"
+
 # http client
 gem "faraday", "~> 2.12"
 gem "faraday-retry"

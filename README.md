@@ -96,13 +96,14 @@ This section provides a high-level quick setup guide.
     ```
     echo {key} > config/master.key
     ```
-- Import last year data
-    ```
-    bundle exec rails aqi:import
-    ```
 - Run rails server & job server
     ```
     bin/dev
+    ```
+- Import last year data
+    NOTE: make sure that the solid queue is running either by `bin/dev` or `bin/jobs` before executing the import job.
+    ```
+    bundle exec rails aqi:import
     ```
 
 ### Tests

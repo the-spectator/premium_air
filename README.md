@@ -13,6 +13,7 @@ An AQI monitor based on Open Weather API.
     - [Local Setup](#local-setup)
     - [Tests](#tests)
 - [Modules](#modules)
+- [Assumptions](#assumptions)
 - [Further Improvement](#further-improvement)
 
 ## Methodology
@@ -202,10 +203,18 @@ Currently We have enqueued the recurring job for every 5 minutes (temp) to impor
     config/recurring.yml
     ```
 
+## Assumptions
+
+- The OpenWeather API returns timestamps with precision up to the second. To prevent duplicate records when importing data for the same timeframe,
+  I’ve created a unique index on recorded_at and location_id.
+
 ## Further Improvement
 
 - Need more Capybara specs
 - Explore Async Load queries
 - Polish AirQualityMetricImporter more
-- Use redis based rate limiter for Openweather API calls.
+- Use redis based rate limiter for Openweather API calls. https://github.com/shopify/limiter also kinda works here if we assume that only one worker process will be run.
 - Integrate GeoCode search API
+- Integrate bullet
+- Integrate sentry
+- Deploy!! 🚀

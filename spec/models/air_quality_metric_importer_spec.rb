@@ -3,8 +3,8 @@ require "open_weather"
 RSpec.describe AirQualityMetricImporter do
   describe "#import" do
     let(:location) { create(:location, name: "Guwahati", latitude: 26.180598, longitude: 91.753943) }
-    let(:start_time) { Time.parse("04 Feb 2025 10:00 AM") }
-    let(:end_time) { Time.parse("04 Feb 2025 12:00 PM") }
+    let(:start_time) { Time.parse("04 Feb 2025 10:00 AM UTC") }
+    let(:end_time) { Time.parse("04 Feb 2025 12:00 PM UTC") }
 
     subject { described_class.import(location, start_time, end_time) }
 
@@ -77,7 +77,7 @@ RSpec.describe AirQualityMetricImporter do
 
     context "for valid args" do
       it "creates metrics", vcr: { cassette_name: "models/air_quality_importer/success" } do
-        expect { subject }.to change(AirQualityMetric, :count).from(0).to(2)
+        expect { subject }.to change(AirQualityMetric, :count).from(0).to(3)
         expect(a_request(:get, /#{OpenWeather::Client::BASE_URL}*/)).to have_been_made
       end
     end

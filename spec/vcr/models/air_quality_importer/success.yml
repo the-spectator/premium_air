@@ -2,7 +2,7 @@
 http_interactions:
 - request:
     method: get
-    uri: http://api.openweathermap.org/data/2.5/air_pollution/history?appid=<auth-token>&end=1738650600&lat=26.180598&lon=91.753943&start=1738643400
+    uri: http://api.openweathermap.org/data/2.5/air_pollution/history?appid=<auth-token>&end=1738670400&lat=26.180598&lon=91.753943&start=1738663200
     body:
       encoding: US-ASCII
       string: ''
@@ -21,15 +21,15 @@ http_interactions:
       Server:
       - openresty
       Date:
-      - Wed, 05 Feb 2025 02:53:49 GMT
+      - Wed, 05 Feb 2025 03:17:13 GMT
       Content-Type:
       - application/json; charset=utf-8
       Content-Length:
-      - '346'
+      - '479'
       Connection:
       - keep-alive
       X-Cache-Key:
-      - "/data/2.5/air_pollution/history?end=1738650600&lat=26.18&lon=91.75&start=1738643400"
+      - "/data/2.5/air_pollution/history?end=1738670400&lat=26.18&lon=91.75&start=1738663200"
       Access-Control-Allow-Origin:
       - "*"
       Access-Control-Allow-Credentials:
@@ -38,6 +38,6 @@ http_interactions:
       - GET, POST
     body:
       encoding: UTF-8
-      string: '{"coord":{"lon":91.7539,"lat":26.1806},"list":[{"main":{"aqi":5},"components":{"co":2243.04,"no":6.82,"no2":45.93,"o3":90.84,"so2":26.46,"pm2_5":184.4,"pm10":210.62,"nh3":56.24},"dt":1738645200},{"main":{"aqi":5},"components":{"co":1949.31,"no":2.68,"no2":30.16,"o3":178.81,"so2":21.22,"pm2_5":201.68,"pm10":224.98,"nh3":44.08},"dt":1738648800}]}'
-  recorded_at: Wed, 05 Feb 2025 02:53:53 GMT
+      string: '{"coord":{"lon":91.7539,"lat":26.1806},"list":[{"main":{"aqi":4},"components":{"co":627.52,"no":0.37,"no2":5.91,"o3":125.89,"so2":4.89,"pm2_5":55.2,"pm10":63.14,"nh3":11.53},"dt":1738663200},{"main":{"aqi":4},"components":{"co":774.38,"no":0.43,"no2":12,"o3":108.72,"so2":6.32,"pm2_5":64.13,"pm10":76.27,"nh3":19.76},"dt":1738666800},{"main":{"aqi":5},"components":{"co":934.6,"no":0.11,"no2":19.54,"o3":92.98,"so2":7.87,"pm2_5":75.12,"pm10":91.69,"nh3":28.12},"dt":1738670400}]}'
+  recorded_at: Wed, 05 Feb 2025 03:17:13 GMT
 recorded_with: VCR 6.3.1

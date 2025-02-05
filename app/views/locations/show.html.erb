@@ -1,0 +1,24 @@
+<% content_for :head do %>
+    <%= javascript_include_tag "http://www.google.com/jsapi", "chartkick", "data-turbo-track": "reload" %>
+<% end %>
+
+<div class="aqi-container px-10">
+    <div class="h-12"></div>
+    <div>
+        <h1 class="text-4xl font-bold mb-8 text-gray-800">
+            <%= @location.name %> | AQI
+        </h1>
+        <div>Last Updated: <%= @location.latest_aqi.recorded_at %> </div>
+    </div>
+
+    <div id="data" class="py-4 flex flex-wrap gap-6 w-full justify-center">
+        <%= render partial: "card", locals: { view_model: @latest_aqi_card } %>
+        <%= render partial: "card", locals: { view_model: @current_month_card } %>
+        <%= render partial: "card", locals: { view_model: @past_month_aqi_card } %>
+    </div>
+
+    <div>
+        <h2 class="text-2xl font-bold mb-8 text-gray-800 mt-4"> Average AQI per month </h2>
+        <%= line_chart @avg_aqi_per_month %>
+    </div>
+</div>

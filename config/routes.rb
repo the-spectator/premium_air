@@ -15,4 +15,5 @@ Rails.application.routes.draw do
   root "aqi#index"
 
   resources :aqi, only: [ :index, :show ]
+  resources :locations, only: :show
 end

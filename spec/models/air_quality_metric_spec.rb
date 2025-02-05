@@ -49,7 +49,7 @@ RSpec.describe AirQualityMetric, type: :model do
       result = subject
       expect(result[:aqi]).to eq(6)
       expect(result[:band]).to eq("Moderate")
-      expect(result[:pollutant]).to eq(:pm2_5) # Highest AQI pollutant
+      expect(result[:max_pollutant]).to eq(:pm2_5) # Highest AQI pollutant
     end
   end
 

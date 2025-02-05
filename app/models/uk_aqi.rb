@@ -102,7 +102,7 @@ class UkAqi
     ]
 
     max_pollutant, max_aqi = aqi_values.max_by { |_, aqi| aqi }
-    { aqi: max_aqi, band: AQI_BAND[max_aqi], pollutant: max_pollutant }
+    { aqi: max_aqi, band: AQI_BAND[max_aqi], max_pollutant: max_pollutant }
   end
 
   private

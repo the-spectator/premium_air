@@ -81,5 +81,19 @@ RSpec.describe AirQualityMetricImporter do
         expect(a_request(:get, /#{OpenWeather::Client::BASE_URL}*/)).to have_been_made
       end
     end
+
+    context "when negative value is given" do
+      before do
+        stub_request(:get, %r{#{OpenWeather::Client::BASE_URL}/data/2.5/air_pollution/history.*})
+          .to_return(
+            body: '{ "coord": { "lon": 91.7539, "lat": 26.1806 }, "list": [ { "main": { "aqi": 5 }, "components": { "co": 934.6, "no": 0.11, "no2": -99999, "o3": 92.98, "so2": 7.87, "pm2_5": 75.12, "pm10": 91.69, "nh3": 28.12 }, "dt": 1738670400 } ] }',
+            headers: { 'Content-Type' => 'application/json' }
+          )
+      end
+
+      it "doesn't import invalid record" do
+        expect { subject }.not_to change(AirQualityMetric, :count)
+      end
+    end
   end
 end

@@ -23,6 +23,8 @@ class AirQualityMetricImporter
 
     # NOTE: SCOPE of improvement - Since upsert_all skips validations, should we add validation each datum?
     metrics = air_quality_data.metrics.map do |datum|
+      next if [ datum.pm2_5, datum.pm10, datum.o3, datum.no2, datum.so2 ].any? { |value| value.negative? }
+
       {
         location_id: location.id,
         recorded_at: datum.recorded_at,
@@ -35,7 +37,7 @@ class AirQualityMetricImporter
         pm10: datum.pm10,
         nh3: datum.nh3
       }
-    end
+    end.compact
 
     # NOTE: SCOPE of improvement - Upsert in batches of 500
     AirQualityMetric.upsert_all(metrics, unique_by: [ :recorded_at, :location_id ])

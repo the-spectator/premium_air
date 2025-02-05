@@ -1,4 +1,8 @@
 class AirQualityImportJob < ApplicationJob
+  RetriableError = Class.new(StandardError)
+
+  retry_on RetriableError, wait: 30.minutes, attempts: 2
+
   queue_as :importer
 
   def perform(location_ids, from_time, to_time)
@@ -17,6 +21,9 @@ class AirQualityImportJob < ApplicationJob
 
   def import(location, from_time, to_time)
     AirQualityMetricImporter.import(location, from_time, to_time)
+  rescue OpenWeather::BaseError => e
+    Rails.logger.error("Client error - #{e.message}")
+    raise RetriableError, e
   rescue AirQualityMetricImporter::ValidationError => e
     Rails.logger.error("Failed to import data with validation error - #{e.message}")
   rescue StandardError => e

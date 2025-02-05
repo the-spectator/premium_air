@@ -15,6 +15,10 @@ class AirQualityMetric < ApplicationRecord
     self.attributes.slice(*UkAqi::CONSIDERED_POLLUTANTS.map(&:to_s))
   end
 
+  def aqi
+    @aqi ||= UkAqi.new(self).calculate_aqi
+  end
+
   private
 
   def recorded_at_cannot_be_in_the_future

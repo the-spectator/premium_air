@@ -1,0 +1,48 @@
+
+<% content_for :head do %>
+    <%= combobox_style_tag %>
+<% end %>
+
+<div class="aqi-container px-10">
+    <div class="h-12"></div>
+    <h1 class="text-4xl font-bold mb-8 text-gray-800 dark:text-gray-100">Air Quality Monitor</h1>
+
+    <%# <div class="flex items-center flex-grow flex-shrink-0">
+        <%= combobox_tag "locations", Location.all %>
+    <%# </div> %>
+
+    <div id="location-stats" class="relative overflow-x-auto shadow-md sm:rounded-lg mt-6">
+        <table class="w-full text-sm text-left rtl:text-right text-gray-500 dark:text-gray-400 shadow-md">
+            <thead class="text-xs text-gray-700 uppercase bg-gray-50 dark:bg-gray-700 dark:text-gray-400">
+                <tr>
+                    <% AqiHelper::TABLE_HEADER.each do |col_name| %>
+                        <th scope="col" class="px-6 py-3">
+                            <%= col_name.upcase %>
+                        </th>
+                    <% end %>
+                </tr>
+            </thead>
+            <tbody>
+                <% @records.each do |location| %>
+                    <tr class="odd:bg-white odd:dark:bg-gray-900 even:bg-gray-50 even:dark:bg-gray-800 border-b dark:border-gray-700 border-gray-200 hover:bg-gray-100 dark:hover:bg-gray-600">
+                        <th scope="row" class="px-6 py-4 font-medium text-gray-900 whitespace-nowrap dark:text-white">
+                            <%= location.name.upcase %>
+                        </th>
+                        <td class="px-6 py-4">
+                            <%= location.latest_aqi.aqi[:aqi] %>
+                        </td>
+                        <td class="px-6 py-4">
+                            <%= location.latest_aqi.recorded_at %>
+                        </td>
+                        <td class="px-6 py-4">
+                            <%= link_to "See More", aqi_path(location), class: "font-medium text-blue-600 dark:text-blue-500 hover:underline"%>
+                        </td>
+                    </tr>
+                <% end %>
+            </tbody>
+        </table>
+    </div>
+    <div class="mt-2 flex justify-end">
+        <%== pagy_nav(@pagy) if @pagy.pages > 1 %>
+    </div>
+</div>

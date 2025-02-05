@@ -39,4 +39,27 @@ RSpec.describe AirQualityMetric, type: :model do
       end
     end
   end
+
+  describe "#uk_aqi" do
+    let(:metric) { build(:air_quality_metric, location: create(:location), co: 627.52, no: 0.0, no2: 15.25, o3: 23.25, so2: 2.62, pm2_5: 49.06, pm10: 61.99, nh3: 23.05) }
+
+    subject { metric.aqi }
+
+    it "gives the aqi hash" do
+      result = subject
+      expect(result[:aqi]).to eq(6)
+      expect(result[:band]).to eq("Moderate")
+      expect(result[:pollutant]).to eq(:pm2_5) # Highest AQI pollutant
+    end
+  end
+
+  describe "#uk_standard_pollutants" do
+    let(:metric) { build(:air_quality_metric, location: create(:location), co: 627.52, no: 0.0, no2: 15.25, o3: 23.25, so2: 2.62, pm2_5: 49.06, pm10: 61.99, nh3: 23.05) }
+
+    subject { metric.uk_standard_pollutants }
+
+    it "gives uk_standard_pollutants" do
+      expect(subject.keys).to match_array(%w[pm2_5 pm10 o3 no2 so2])
+    end
+  end
 end

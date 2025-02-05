@@ -9,8 +9,8 @@ An AQI monitor based on Open Weather API.
 - [Methodology Used](#methodology)
 - [Getting Started](#getting-started)
     - [Prerequisites](#prerequisites)
-    - [Our Stack](#stack)
-    - [Local Setup](#local)
+    - [Our Stack](#our-stack)
+    - [Local Setup](#local-setup)
     - [Tests](#tests)
 - [Modules](#modules)
 - [Further Improvement](#further-improvement)
@@ -178,26 +178,34 @@ Currently We have enqueued the recurring job for every 5 minutes (temp) to impor
 ## Key Code Components
 
 - OpenWeather Client
+    ```
     lib/open_weather/client.rb
     lib/open_weather/api/air_pollution.rb
     spec/lib/open_weather/*_spec.rb
+    ```
 
 - Model
-    app/models/air_quality_metric.rb
+    ```
+      app/models/air_quality_metric.rb
+    ```
 
 - AQI Calculator
+    ```
     app/models/uk_aqi.rb
     spec/models/uk_aqi_spec.rb
+    ```
 
 - Importer Job & Cron
+    ```
     app/models/air_quality_metric_importer.rb
     app/jobs/air_quality_import_cron_job.rb
     config/recurring.yml
+    ```
 
 ## Further Improvement
 
 - Need more Capybara specs
 - Explore Async Load queries
 - Polish AirQualityMetricImporter more
-- Rate limiter for ImportJob
+- Use redis based rate limiter for Openweather API calls.
 - Integrate GeoCode search API

@@ -53,6 +53,9 @@ gem "thruster", require: false
 # To get top n query
 gem "activerecord-has_some_of_many"
 
+# Graph
+gem "chartkick"
+
 # featureful dropdown
 gem "hotwire_combobox"
 

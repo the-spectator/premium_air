@@ -1,0 +1,43 @@
+---
+http_interactions:
+- request:
+    method: get
+    uri: http://api.openweathermap.org/data/2.5/air_pollution/history?appid=<auth-token>&end=1738650600&lat=26.180598&lon=91.753943&start=1738643400
+    body:
+      encoding: US-ASCII
+      string: ''
+    headers:
+      User-Agent:
+      - Faraday v2.12.2
+      Accept-Encoding:
+      - gzip;q=1.0,deflate;q=0.6,identity;q=0.3
+      Accept:
+      - "*/*"
+  response:
+    status:
+      code: 200
+      message: OK
+    headers:
+      Server:
+      - openresty
+      Date:
+      - Wed, 05 Feb 2025 02:53:49 GMT
+      Content-Type:
+      - application/json; charset=utf-8
+      Content-Length:
+      - '346'
+      Connection:
+      - keep-alive
+      X-Cache-Key:
+      - "/data/2.5/air_pollution/history?end=1738650600&lat=26.18&lon=91.75&start=1738643400"
+      Access-Control-Allow-Origin:
+      - "*"
+      Access-Control-Allow-Credentials:
+      - 'true'
+      Access-Control-Allow-Methods:
+      - GET, POST
+    body:
+      encoding: UTF-8
+      string: '{"coord":{"lon":91.7539,"lat":26.1806},"list":[{"main":{"aqi":5},"components":{"co":2243.04,"no":6.82,"no2":45.93,"o3":90.84,"so2":26.46,"pm2_5":184.4,"pm10":210.62,"nh3":56.24},"dt":1738645200},{"main":{"aqi":5},"components":{"co":1949.31,"no":2.68,"no2":30.16,"o3":178.81,"so2":21.22,"pm2_5":201.68,"pm10":224.98,"nh3":44.08},"dt":1738648800}]}'
+  recorded_at: Wed, 05 Feb 2025 02:53:53 GMT
+recorded_with: VCR 6.3.1

@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html>
+<html class="h-full antialiased">
   <head>
     <title><%= content_for(:title) || "Premium Air" %></title>
     <meta name="viewport" content="width=device-width,initial-scale=1">
@@ -23,6 +23,8 @@
   </head>
 
   <body>
-    <%= yield %>
+    <main class="font-sans font-normal leading-normal text-gray-800 bg-white flex flex-col min-h-screen">
+      <%= yield %>
+    </main>
   </body>
 </html>

@@ -1,0 +1,32 @@
+/* Borrowed from https://github.com/ddnexus/pagy/discussions/714 */
+.pagy {
+    @apply inline-flex items-stretch -space-x-px;
+
+    > *:first-child {
+      @apply rounded-l-lg;
+    }
+
+    > *:last-child {
+      @apply rounded-r-lg;
+    }
+  }
+
+  .pagy a:not(.gap) {
+    @apply flex items-center justify-center text-sm py-2 px-4 leading-tight text-gray-500 bg-white border border-gray-300;
+
+    &:hover {
+      @apply bg-gray-100 text-gray-700;
+    }
+
+    &:not([href]) {
+      @apply text-gray-300 bg-gray-100 cursor-default;
+    }
+
+    &.current {
+      @apply flex items-center justify-center text-sm z-10 py-2 px-4 leading-tight text-blue-700 bg-blue-50 border border-blue-300;
+    }
+  }
+
+  span.pagy.info {
+    @apply text-sm font-normal text-gray-500;
+  }

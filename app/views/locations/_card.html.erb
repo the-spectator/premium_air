@@ -1,24 +1,24 @@
-<div class="block max-w-sm p-6 bg-white rounded-2xl border border-gray-300 shadow-md bg-white hover:bg-gray-100">
-    <div class="text-gray-600 text-sm">
+<div class="block max-w-sm p-6 bg-white rounded-2xl border border-gray-300 shadow-md bg-white hover:bg-gray-100 dark:bg-gray-800 dark:border-gray-700 dark:hover:bg-gray-700">
+    <div class="text-gray-600 text-sm dark:text-white">
         <%= view_model.title %>
     </div>
 
     <div class="flex justify-between items-center mt-2">
 
     <%# AQI %>
-    <div>
+    <div class="dark:text-white">
         <span class="text-4xl font-bold <%= view_model.aqi_colour_class %>"><%= view_model.uk_aqi[:aqi] %></span>
         <span class="text-lg">AQI</span>
     </div>
 
     <%# AirQuality Band %>
-    <div class="text-gray-700 font-medium">
+    <div class="text-gray-700 font-medium dark:text-white">
         Air Quality Is
         <span class="<%= view_model.aqi_colour_class %> font-bold text-2xl"><%= view_model.uk_aqi[:band] %></span></div>
     </div>
 
     <%# Pollutants %>
-    <div class="mt-4 p-2 border rounded-xl text-sm text-gray-700 flex flex-wrap justify-center gap-2 bg-gray-100">
+    <div class="mt-4 p-2 border rounded-xl text-sm text-gray-700 flex flex-wrap justify-center gap-2 bg-gray-100 dark:bg-gray-400">
         <% view_model.pollutants_pills.each do |pill| %>
             <span class="<%=pill[:class]%>">
                 <span class="font-bold"> <%=pill[:name]%> </span> <span class="text-xs"><%= pill[:concentration] %></span>

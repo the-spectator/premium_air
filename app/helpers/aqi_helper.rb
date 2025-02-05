@@ -1,3 +1,3 @@
 module AqiHelper
-  TABLE_HEADER = [ "Location", "Latest Recorded AQI", "Latest Recorded At", "Action" ]
+  TABLE_HEADER = [ "Location", "Latest Recorded AQI", "Average Recorded AQI", "Action" ]
 end

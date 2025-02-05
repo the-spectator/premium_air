@@ -16,4 +16,5 @@ Rails.application.routes.draw do
 
   resources :aqi, only: [ :index, :show ]
   resources :locations, only: :show
+  resources :states, only: :index
 end

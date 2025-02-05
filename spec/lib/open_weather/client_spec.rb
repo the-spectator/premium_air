@@ -9,6 +9,10 @@ RSpec.describe OpenWeather::Client do
     it "returns the air_pollution api wrapper instance" do
       expect(client.air_pollution).to be_an_instance_of(OpenWeather::Api::AirPollution)
     end
+
+    it "returns the air_pollution api wrapper instance" do
+      expect(client.geo_coding).to be_an_instance_of(OpenWeather::Api::GeoCoding)
+    end
   end
 
   describe "raises client error on 4xx status" do

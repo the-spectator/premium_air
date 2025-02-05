@@ -26,6 +26,10 @@ module OpenWeather
       @pollution ||= OpenWeather::Api::AirPollution.new(self)
     end
 
+    def geo_coding
+      @geo_coding ||= OpenWeather::Api::GeoCoding.new(self)
+    end
+
     private
 
     attr_reader :api_key

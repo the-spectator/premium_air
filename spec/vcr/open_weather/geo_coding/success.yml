@@ -1,0 +1,43 @@
+---
+http_interactions:
+- request:
+    method: get
+    uri: http://api.openweathermap.org/geo/1.0/direct?appid=<auth-token>&limit=1&q=wagholi,maharashtra
+    body:
+      encoding: US-ASCII
+      string: ''
+    headers:
+      User-Agent:
+      - Faraday v2.12.2
+      Accept-Encoding:
+      - gzip;q=1.0,deflate;q=0.6,identity;q=0.3
+      Accept:
+      - "*/*"
+  response:
+    status:
+      code: 200
+      message: OK
+    headers:
+      Server:
+      - openresty
+      Date:
+      - Wed, 05 Feb 2025 13:55:30 GMT
+      Content-Type:
+      - application/json; charset=utf-8
+      Content-Length:
+      - '99'
+      Connection:
+      - keep-alive
+      X-Cache-Key:
+      - "/geo/1.0/direct?limit=1&q=wagholi%2cmaharashtra"
+      Access-Control-Allow-Origin:
+      - "*"
+      Access-Control-Allow-Credentials:
+      - 'true'
+      Access-Control-Allow-Methods:
+      - GET, POST
+    body:
+      encoding: UTF-8
+      string: '[{"name":"Wagholi","lat":20.70430215,"lon":77.74280838036458,"country":"IN","state":"Maharashtra"}]'
+  recorded_at: Wed, 05 Feb 2025 13:55:30 GMT
+recorded_with: VCR 6.3.1

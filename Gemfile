@@ -28,6 +28,9 @@ gem "solid_cache"
 gem "solid_queue"
 gem "solid_cable"
 
+# monitor solid queue
+gem "mission_control-jobs", "~> 1.0"
+
 # http client
 gem "faraday", "~> 2.12"
 gem "faraday-retry"
@@ -47,6 +50,21 @@ gem "thruster", require: false
 # Use Active Storage variants [https://guides.rubyonrails.org/active_storage_overview.html#transforming-images]
 # gem "image_processing", "~> 1.2"
 
+# To get top n query
+gem "activerecord-has_some_of_many"
+
+# Graph
+gem "chartkick"
+
+# featureful dropdown
+gem "hotwire_combobox"
+
+# CSS
+gem "tailwindcss-rails"
+
+# pagination
+gem "pagy", "~> 9.3"
+
 group :development, :test do
   # See https://guides.rubyonrails.org/debugging_rails_applications.html#debugging-with-the-debug-gem
   gem "debug", platforms: %i[ mri windows ], require: "debug/prelude"
@@ -65,7 +83,7 @@ group :test do
   gem "factory_bot_rails", "~> 6.4"
   gem "webmock", "~> 3.0"
   gem "shoulda-matchers", "~> 6.0"
-  # TODO integrate simple cov
+  gem "simplecov", require: false
 end
 
 group :development do
